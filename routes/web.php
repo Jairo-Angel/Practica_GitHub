@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ControladorVistas;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
+/*
 Route::get('/', function () {
     return view('formulario');
 });
@@ -23,3 +23,10 @@ Route::get('/', function () {
 Route::get('/tabla', function () {
     return view('tabla');
 });
+*/
+
+Route::get('/', [ControladorVistas::class,'showfor'])->name('apfor');
+
+Route::get('/tabla', [ControladorVistas::class,'showtab'])->name('aptab');
+
+Route::post('GuardarRegistro', [ControladorVistas::class,'procesarllenado'])->name('SaveMem');
